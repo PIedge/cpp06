@@ -6,7 +6,7 @@
 /*   By: tmerrien <tmerrien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:02:38 by tmerrien          #+#    #+#             */
-/*   Updated: 2022/03/07 14:42:41 by tmerrien         ###   ########.fr       */
+/*   Updated: 2022/03/13 15:45:08 by tmerrien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,20 @@ Base *generate(void)
 {
 	int r = rand() % 3 + 1;
 	if (r == 1)
+	{
+		std::cout << "A created" << std::endl;
 		return (new A());
+	}
 	else if (r == 2)
+	{
+		std::cout << "B created" << std::endl;
 		return (new B());
+	}
 	else
+	{
+		std::cout << "C created" << std::endl;
 		return (new C());
+	}
 }
 
 void identify(Base *p)

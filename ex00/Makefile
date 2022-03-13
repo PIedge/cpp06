@@ -4,7 +4,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 COM		=	c++
 
-FLAG	=	-Wall -Wextra -Werror
+FLAG	=	-Wall -Wextra -Werror -std=c++98
 
 NAME	=	convert
 

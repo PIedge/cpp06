@@ -6,18 +6,18 @@
 /*   By: tmerrien <tmerrien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:17:16 by tmerrien          #+#    #+#             */
-/*   Updated: 2022/03/06 15:08:41 by tmerrien         ###   ########.fr       */
+/*   Updated: 2022/03/13 15:38:42 by tmerrien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Data.h"
-#include <cstdint>
 #include <string>
 #include <iostream>
+#include <stdint.h>
 
-std::uintptr_t serialize(Data *ptr)
+uintptr_t serialize(Data *ptr)
 {
-	return (reinterpret_cast<std::uintptr_t>(ptr));
+	return (reinterpret_cast<uintptr_t>(ptr));
 }
 
 Data *deserialize(uintptr_t raw)
@@ -30,7 +30,7 @@ int main(void)
 	Data d = Data(10);
 
 	int i = 4;
-	std::uintptr_t b = reinterpret_cast<std::uintptr_t>(&i);
+	uintptr_t b = reinterpret_cast<uintptr_t>(&i);
 	int *a = reinterpret_cast<int*>(b);
 	std::cout << sizeof(i) << std::endl;
 	std::cout << sizeof(*a) << std::endl;
@@ -39,7 +39,7 @@ int main(void)
 	std::cout << "Data adress : " << &d << std::endl;
 	std::cout << "before serialize : " << d.data << std::endl;
 
-	std::uintptr_t ptr = serialize(&d);
+	uintptr_t ptr = serialize(&d);
 	Data *result = deserialize(ptr);
 
 	std::cout << "after deserialize : " << result << std::endl;
